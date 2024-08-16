@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./container/Hero";
 import tesla2 from "./assets/tesla2.jpg";
@@ -98,7 +98,6 @@ function App() {
       setShowNavbar(false);
     } else {
       setShowNavbar(true);
-      
     }
 
     setLastScrollY(currentScrollY);

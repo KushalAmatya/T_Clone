@@ -104,11 +104,63 @@ const chargingImage = [
     text: "Super Charging",
   },
 ];
+const dicoverLinks = [
+  "Roadster",
+  "Semi",
+  "Powerwall",
+  "Commercial Solar",
+  "Solar Roof",
+  "Commercial Energy",
+  "Utilities",
+  "Find Us",
+  "Support",
+  "Investor Relations",
+  "United States",
+  "Privacy & Legal",
+  "Careers",
+  "News",
+  "Events",
+  "Contact Us",
+  "Shop",
+  "Account",
+  "More",
+];
+
+const shopImage = [
+  {
+    src: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Charging.png",
+    alt: "",
+    text: "Charging",
+  },
+  {
+    src: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Vehicle-Accessories.png",
+    alt: "",
+    text: "Vehicle Accessories",
+  },
+  {
+    src: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Apparel.png",
+    alt: "",
+    text: "Apparel",
+  },
+  {
+    src: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Shop-Lifestyle.png",
+    alt: "",
+    text: "Lifestyle",
+  },
+];
 export const Navbar = () => {
   const [hover, setHover] = useState(false);
   const [energyHover, setEnergyHover] = useState(false);
   const [chargeHover, setChargeHover] = useState(false);
   const [discoverHover, setDiscoverHover] = useState(false);
+  const [shopHover, setShopHover] = useState(false);
+
+  const handleshopMouseEnter = () => {
+    setShopHover(true);
+  };
+  const handleshopMouseLeave = () => {
+    setShopHover(false);
+  };
 
   const handlediscoverMouseEnter = () => {
     setDiscoverHover(true);
@@ -139,12 +191,13 @@ export const Navbar = () => {
   return (
     <div
       className={`flex justify-between pt-[20px] fixed top-0 bg-white/[0.01]  w-full transition-all duration-100 ease-in ${
-        (energyHover || hover || chargeHover || discoverHover) && "!bg-white"
+        (energyHover || hover || chargeHover || discoverHover || shopHover) &&
+        "!bg-white"
       }`}
     >
       <div
         className={`pl-12 text-white ${
-          (energyHover || hover || chargeHover || discoverHover) &&
+          (energyHover || hover || chargeHover || discoverHover || shopHover) &&
           "!text-black"
         }`}
       >
@@ -153,7 +206,11 @@ export const Navbar = () => {
       <div>
         <ul
           className={`flex gap-0 text-white ${
-            (energyHover || hover || chargeHover || discoverHover) &&
+            (energyHover ||
+              hover ||
+              chargeHover ||
+              discoverHover ||
+              shopHover) &&
             "!text-gray-950"
           }`}
         >
@@ -162,13 +219,21 @@ export const Navbar = () => {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               className={`flex justify-start text-white ${
-                (energyHover || hover || chargeHover || discoverHover) &&
+                (energyHover ||
+                  hover ||
+                  chargeHover ||
+                  discoverHover ||
+                  shopHover) &&
                 "!text-gray-950"
               }`}
             >
               <button
                 className={`${
-                  (energyHover || hover || chargeHover || discoverHover) &&
+                  (energyHover ||
+                    hover ||
+                    chargeHover ||
+                    discoverHover ||
+                    shopHover) &&
                   "hover:bg-black/10"
                 } px-4 z-50`}
               >
@@ -187,13 +252,21 @@ export const Navbar = () => {
             onMouseEnter={handleenergyMouseEnter}
             onMouseLeave={handleenergyMouseLeave}
             className={`flex gap-6 text-white ${
-              (energyHover || hover || chargeHover || discoverHover) &&
+              (energyHover ||
+                hover ||
+                chargeHover ||
+                discoverHover ||
+                shopHover) &&
               "!text-gray-950"
             }`}
           >
             <button
               className={`${
-                (energyHover || hover || chargeHover || discoverHover) &&
+                (energyHover ||
+                  hover ||
+                  chargeHover ||
+                  discoverHover ||
+                  shopHover) &&
                 "hover:bg-black/10"
               } px-4`}
             >
@@ -213,13 +286,21 @@ export const Navbar = () => {
             onMouseEnter={handlechargeMouseEnter}
             onMouseLeave={handlechargeMouseLeave}
             className={`flex gap-6 text-white ${
-              (energyHover || hover || chargeHover || discoverHover) &&
+              (energyHover ||
+                hover ||
+                chargeHover ||
+                discoverHover ||
+                shopHover) &&
               "!text-gray-950"
             }`}
           >
             <button
               className={`${
-                (energyHover || hover || chargeHover || discoverHover) &&
+                (energyHover ||
+                  hover ||
+                  chargeHover ||
+                  discoverHover ||
+                  shopHover) &&
                 "hover:bg-black/10"
               } px-4`}
             >
@@ -239,13 +320,21 @@ export const Navbar = () => {
             onMouseEnter={handlediscoverMouseEnter}
             onMouseLeave={handlediscoverMouseLeave}
             className={`flex gap-6 text-white ${
-              (energyHover || hover || chargeHover || discoverHover) &&
+              (energyHover ||
+                hover ||
+                chargeHover ||
+                discoverHover ||
+                shopHover) &&
               "!text-gray-950"
             }`}
           >
             <button
               className={`${
-                (energyHover || hover || chargeHover || discoverHover) &&
+                (energyHover ||
+                  hover ||
+                  chargeHover ||
+                  discoverHover ||
+                  shopHover) &&
                 "hover:bg-black/10"
               } px-4`}
             >
@@ -255,22 +344,45 @@ export const Navbar = () => {
           {discoverHover && (
             <Dropdown
               setHover={setDiscoverHover}
-              carLinks={carLinks}
               styleName="!pl-[300px]"
+              carLinks={dicoverLinks}
               height="350px"
             />
           )}
 
-          <li>
+          <li
+            onMouseEnter={handleshopMouseEnter}
+            onMouseLeave={handleshopMouseLeave}
+            className={`flex gap-6 text-white ${
+              (energyHover ||
+                hover ||
+                chargeHover ||
+                discoverHover ||
+                shopHover) &&
+              "!text-gray-950"
+            }`}
+          >
             <button
               className={`${
-                (energyHover || hover || chargeHover || discoverHover) &&
+                (energyHover ||
+                  hover ||
+                  chargeHover ||
+                  discoverHover ||
+                  shopHover) &&
                 "hover:bg-black/10"
               } px-4`}
             >
               Shop
             </button>
           </li>
+          {shopHover && (
+            <Dropdown
+              setHover={setShopHover}
+              styleName="!pl-[300px]"
+              carImage={shopImage}
+              height="350px"
+            />
+          )}
         </ul>
       </div>
       <div className="pr-[52px]">
