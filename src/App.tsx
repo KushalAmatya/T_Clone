@@ -90,10 +90,15 @@ const termsVal = [
 function App() {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-
+  const [topNavbar, setTopNavbar] = useState(true);
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
 
+    if (currentScrollY < 100) {
+      setTopNavbar(true);
+    } else {
+      setTopNavbar(false);
+    }
     if (currentScrollY > lastScrollY && currentScrollY > 100) {
       setShowNavbar(false);
     } else {
@@ -114,8 +119,8 @@ function App() {
   return (
     <>
       {showNavbar && (
-        <div className="transition-all ease-in duration-1000">
-          <Navbar />
+        <div className={`transition-all ease-in duration-1000 }`}>
+          <Navbar showNavbar={showNavbar} topNavbar={topNavbar} />
         </div>
       )}
 

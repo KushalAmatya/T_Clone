@@ -1,6 +1,11 @@
 import { ZoomInIcon, GlobeIcon, PersonIcon } from "@radix-ui/react-icons";
-import { useState } from "react";
+import { useState, Dispatch } from "react";
 import { Dropdown } from "./Dropdown";
+
+type NavbarProps = {
+  showNavbar: boolean;
+  topNavbar?: boolean;
+};
 const carImage = [
   {
     src: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-S.png",
@@ -148,7 +153,7 @@ const shopImage = [
     text: "Lifestyle",
   },
 ];
-export const Navbar = () => {
+export const Navbar = ({ showNavbar, topNavbar }: NavbarProps) => {
   const [hover, setHover] = useState(false);
   const [energyHover, setEnergyHover] = useState(false);
   const [chargeHover, setChargeHover] = useState(false);
@@ -190,35 +195,42 @@ export const Navbar = () => {
   };
   return (
     <div
-      className={`flex justify-between pt-[20px] fixed top-0 bg-white/[0.01]  w-full transition-all duration-100 ease-in ${
+      className={`flex justify-between pt-[20px] z-50 fixed  top-0 pb-4   w-full transition-all duration-100 ease-in ${
         (energyHover || hover || chargeHover || discoverHover || shopHover) &&
         "!bg-white"
+      } ${showNavbar ? "bg-white text-black" : "bg-white/[0.01]"} ${
+        topNavbar && "bg-white/[0.01]"
       }`}
     >
       <div
-        className={`pl-12 text-white ${
+        className={`pl-12 ${showNavbar ? "text-black" : "text-white"} ${
           (energyHover || hover || chargeHover || discoverHover || shopHover) &&
           "!text-black"
-        }`}
+        } ${topNavbar && "text-white"}`}
       >
         <p className="font-semibold italic">TESLA</p>
       </div>
       <div>
         <ul
-          className={`flex gap-0 text-white ${
+          className={`flex gap-0 ${showNavbar ? "text-black" : "text-white"} ${
             (energyHover ||
               hover ||
               chargeHover ||
               discoverHover ||
               shopHover) &&
             "!text-gray-950"
-          }`}
+          }
+          `}
         >
           <div>
             <li
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className={`flex justify-start text-white ${
+              className={`flex justify-start ${
+                showNavbar ? "text-black" : "text-white"
+              }
+              ${topNavbar && "text-white"} 
+              ${
                 (energyHover ||
                   hover ||
                   chargeHover ||
@@ -251,7 +263,9 @@ export const Navbar = () => {
           <li
             onMouseEnter={handleenergyMouseEnter}
             onMouseLeave={handleenergyMouseLeave}
-            className={`flex gap-6 text-white ${
+            className={`flex gap-6 ${showNavbar ? "text-black" : "text-white"} 
+            ${topNavbar && "text-white"} 
+            ${
               (energyHover ||
                 hover ||
                 chargeHover ||
@@ -285,7 +299,9 @@ export const Navbar = () => {
           <li
             onMouseEnter={handlechargeMouseEnter}
             onMouseLeave={handlechargeMouseLeave}
-            className={`flex gap-6 text-white ${
+            className={`flex gap-6 ${showNavbar ? "text-black" : "text-white"} 
+            ${topNavbar && "text-white"} 
+            ${
               (energyHover ||
                 hover ||
                 chargeHover ||
@@ -319,7 +335,9 @@ export const Navbar = () => {
           <li
             onMouseEnter={handlediscoverMouseEnter}
             onMouseLeave={handlediscoverMouseLeave}
-            className={`flex gap-6 text-white ${
+            className={`flex gap-6 ${showNavbar ? "text-black" : "text-white"} 
+            ${topNavbar && "text-white"} 
+            ${
               (energyHover ||
                 hover ||
                 chargeHover ||
@@ -353,7 +371,8 @@ export const Navbar = () => {
           <li
             onMouseEnter={handleshopMouseEnter}
             onMouseLeave={handleshopMouseLeave}
-            className={`flex gap-6 text-white ${
+            className={`flex gap-6 ${showNavbar ? "text-black" : "text-white"} 
+            ${topNavbar && "text-white"} ${
               (energyHover ||
                 hover ||
                 chargeHover ||
@@ -394,21 +413,33 @@ export const Navbar = () => {
             <ZoomInIcon
               width={25}
               height={25}
-              className={`text-white ${hover && "!text-black"}`}
+              className={`${showNavbar ? "text-black" : "text-white"} 
+              ${topNavbar && "text-white"} 
+              ${
+                (energyHover ||
+                  hover ||
+                  chargeHover ||
+                  discoverHover ||
+                  shopHover) &&
+                "!text-black"
+              }`}
             />
           </li>
           <li>
             <GlobeIcon
               width={25}
               height={25}
-              className={`text-white ${hover && "text-black"}`}
+              color={`  
+                ${showNavbar ? "black" : ""}
+                `}
             />
           </li>
           <li>
             <PersonIcon
               width={25}
               height={25}
-              className={`text-white ${hover && "text-black"}`}
+              color={`
+              ${showNavbar ? "black" : "white"}`}
             />
           </li>
         </ul>

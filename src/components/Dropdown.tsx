@@ -28,7 +28,7 @@ export const Dropdown = ({
       onClick={handleMouseEnter}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`pt-6 absolute -translate-y-2 bg-white w-full h-[450px] top-[50px] left-[50%] transform translate-x-[-50%] rounded-lg transition-all !h-[${height}]`}
+      className={`pt-6 absolute -translate-y-[5px] bg-white w-full h-[450px] top-[50px] left-[50%] transform translate-x-[-50%] rounded-lg transition-all !h-[${height}] z-10`}
     >
       {!carImage && (
         <div className="text-center pt-10 max-w-[600px] flex items-center mx-auto">
@@ -47,7 +47,7 @@ export const Dropdown = ({
             {carImage?.map((item, index) => (
               <li key={index}>
                 <img src={item.src} alt={item.alt} />
-                <p className="text-black pl-[10px] !min-w-32 pt-2">
+                <p className="text-black pl-[10px] !min-w-32 pt-8">
                   {item.text}
                 </p>
               </li>

@@ -1,4 +1,3 @@
-// import cybertruck from "../assets/cybertruck.png"
 type HeroProps = {
   title: string;
   description?: string;
