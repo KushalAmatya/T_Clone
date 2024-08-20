@@ -117,7 +117,7 @@ function App() {
   }, [lastScrollY]);
 
   return (
-    <>
+    <div className="font-roboto">
       {showNavbar && (
         <div className={`transition-all ease-in duration-1000 }`}>
           <Navbar showNavbar={showNavbar} topNavbar={topNavbar} />
@@ -141,7 +141,7 @@ function App() {
           <Terms key={index} id={item.id} description={item.description} />
         );
       })}
-    </>
+    </div>
   );
 }
 

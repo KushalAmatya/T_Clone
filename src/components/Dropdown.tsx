@@ -74,7 +74,7 @@ export const Dropdown = ({
             </ul>
           </div>
 
-          <div className="border-l-2 border-black">
+          <div className="border-l-2 border-gray-400">
             <ul className="ml-[100px] flex flex-col justify-evenly gap-3 pr-[300px] pt-[50px]">
               {carLinks?.map((item, index) => (
                 <li key={index} className="text-black w-48">
