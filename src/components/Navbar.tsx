@@ -195,7 +195,7 @@ export const Navbar = ({ showNavbar, topNavbar }: NavbarProps) => {
   };
   return (
     <div
-      className={`flex justify-between pt-[20px] z-50 fixed  top-0 pb-4   w-full transition-all duration-100 ease-in ${
+      className={`flex justify-between pt-[20px] z-50 fixed  top-0 pb-4   w-full transition-all duration-100 animate-slideDown ease-in ${
         (energyHover || hover || chargeHover || discoverHover || shopHover) &&
         "!bg-white"
       } ${
